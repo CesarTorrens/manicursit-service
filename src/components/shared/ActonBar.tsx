@@ -49,7 +49,7 @@ export default function ActionBar() {
     new Date().toLocaleTimeString(["en-GB"], {
       hour: "2-digit",
       minute: "2-digit",
-    }) >= "23:00";
+    }) >= "17:00";
   const router = useRouter();
   const params = useParams();
   const { stepRoute } = params;
@@ -102,13 +102,13 @@ export default function ActionBar() {
           (!!quote.service &&
             stepRoute === "step2" &&
             (!quote.date || !quote.clientName)) ||
-          !availableTurn
+          availableTurn
         }
         onClick={handleIncrementStep}
         type="button"
         className={
-          (quote.service && !stepRoute && availableTurn) ||
-          (stepRoute && quote.date && quote.clientName && availableTurn)
+          (quote.service && !stepRoute && !availableTurn) ||
+          (stepRoute && quote.date && quote.clientName && !availableTurn)
             ? "text-white bg-slate-600 font-medium rounded-md text-sm px-5 py-2.5 max-w-48"
             : "text-white bg-slate-400 font-medium rounded-md text-sm px-5 py-2.5 max-w-48"
         }

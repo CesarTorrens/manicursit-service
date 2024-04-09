@@ -18,14 +18,21 @@ export default async function Turns() {
       <h1 className="text-center text-3xl text-fontColor font-semibold mb-8">
         My Turns
       </h1>
-      {turns.map((turn) => (
-        <TurnItem
-          key={turn.id}
-          service={turn.service}
-          clientName={turn.clientName}
-          date={new Date(turn.date)}
-        />
-      ))}
+
+      {turns.length ? (
+        turns.map((turn) => (
+          <TurnItem
+            key={turn.id}
+            service={turn.service}
+            clientName={turn.clientName}
+            date={new Date(turn.date)}
+          />
+        ))
+      ) : (
+        <h4 className="text-fontColor font-semibold px-1 mb-2">
+          No hay turnos disponibles.
+        </h4>
+      )}
     </main>
   );
 }

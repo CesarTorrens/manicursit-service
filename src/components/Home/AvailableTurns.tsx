@@ -57,7 +57,7 @@ export default function AvailableTurns({ quotes }: { quotes: QuoteRequest[] }) {
 
   return (
     <>
-      {timeAfternoon.length === 0 && timeMorning.length === 0 ? (
+      {!timeAfternoon.length && !timeMorning.length ? (
         <h4 className="text-fontColor font-semibold px-1 mb-2">
           No hay turnos disponibles
         </h4>

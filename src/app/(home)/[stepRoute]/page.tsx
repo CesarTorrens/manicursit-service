@@ -60,7 +60,7 @@ export default function Step2() {
 
   return (
     <>
-      {!loading && quotes.length && stepRoute === "step2" && (
+      {!loading && !!quotes.length && stepRoute === "step2" && (
         <section>
           <h3 className="text-fontColor font-semibold px-1 mb-2">
             Próximos turnos disponibles
